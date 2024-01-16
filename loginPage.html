@@ -102,14 +102,6 @@
       font-weight: 400;
     }
 
-    .span {
-      font-size: 14px;
-      margin-left: 5px;
-      color: #2d79f3;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
     .button-submit {
       appearance: none;
       background-color: transparent;
@@ -268,24 +260,44 @@
       gap: 20px;
     }
 
+    .footerCard {
+      width: 140%;
+      height: auto;
+      padding: 10px;
+      border-radius: 30px;
+      background: transparent;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+     
+    }
+
     .card-item {
       flex: 1 0 calc(25% - 20px);
       text-align: center;
       font-size: medium;
-      text-decoration: none; 
-      color: inherit; 
+      text-decoration: none;
+      color: inherit;
     }
 
     .card-link {
       flex: 1 0 calc(25% - 20px);
       text-align: center;
       font-size: medium;
-      text-decoration: none; 
-      color: inherit; 
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 15px 15px 30px rgb(25, 25, 25),
+        -15px -15px 30px rgb(60, 60, 60);
+      border-radius: 20px;
+      padding: 2px;
     }
-   .card-link:hover {
-        text-decoration: underline; 
+
+    .card-link:hover {
+      text-decoration: underline;
+      opacity: 0.5;
+
     }
+
     .card-item img {
       width: 35%;
       border-radius: 15px;
@@ -303,6 +315,12 @@
         padding: 30px;
         flex: 1 0 calc(50% - 20px);
         text-align: center;
+      }
+
+      .footer {
+        flex: 1 0 calc(50% - 20px);
+        text-align: center;
+        padding: 30px;
       }
 
       .form {
@@ -323,18 +341,27 @@
       .card-item {
         flex: 1 0 calc(50% - 20px);
       }
+
       .wide-inputs input {
-      justify-content: center;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-left: 1px;
+        margin-right: 1px;
+        border-radius: 10px;
+        border-color: white;
+        margin-top: 10px;
+        width: 43.4%;
+        background-color: transparent;
+        color: #ffffff;
+      }
+      .headerFooter {
+      width: 100%;
       align-items: center;
-      padding: 10px;
-      margin-left: 1px;
-      margin-right: 1px;
-      border-radius: 10px;
-      border-color: white;
-      margin-top: 10px;
-      width: 94%;
-      background-color: transparent;
-      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0px 15px 0px 15px;
     }
     }
 
@@ -353,7 +380,7 @@
       border-radius: 10px;
       border-color: white;
       margin-top: 10px;
-      width: 94%;
+      width: 43.4%;
       background-color: transparent;
       color: #ffffff;
     }
@@ -369,10 +396,39 @@
     .vpn-image {
       width: 50%;
     }
+
     .message-content {
-    color: white;
-    border: 0.125em solid red;
-    background-color: red;
+      color: white;
+      border: 0.125em solid red;
+      background-color: red;
+    }
+
+    .footer {
+      width: 100%;
+      border-top: 0.125em solid #fff;
+      margin-top: 90px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      align-items: center;
+      color: #fff;
+      font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    .rights-reserved {
+      text-align: center;
+      color: #fff;
+    }
+
+    .headerFooter {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      padding: 0px 15px 0px 15px;
     }
   </style>
   <section class="main">
@@ -386,7 +442,6 @@
       </div>
       <div class="sectionForm">
         <div class="sub-content">
-
           <div class="wide-inputs">
             %%SSL_LOGIN%%
           </div>
@@ -395,10 +450,6 @@
               Entrar
             </button>
             <div class="footerForm">
-              <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
-                alt="Logo da COGEL">
-              <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
-                alt="Logo da SEMIT">
             </div>
           </div>
         </div>
@@ -438,7 +489,8 @@
           </h1>
         </div>
         <div class="card-item">
-          <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_ligacoes_conferencias.png"
+          <img
+            src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_ligacoes_conferencias.png"
             alt="Ligações e conferências em ambientes controlados">
           <h1>
             Ligações e conferências em ambientes controlados
@@ -466,44 +518,51 @@
           </h1>
         </div>
       </div>
-      <h1>
-        DICAS DE USO
-      </h1>
-      <div class="card">
-        <a href="link_para_manual_vpn" class="card-link">
-            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_manual_vpn.png"
-                alt="Manual do VPN Acesso Remoto">
-            <h1>
-                Manual do VPN Acesso Remoto
-            </h1>
-        </a>
-        <a href="link_para_cartilhas" class="card-link">
-            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_cartilha.png"
-                alt="Cartilhas de Aprendizado">
-            <h1>
-                Cartilhas de Aprendizado
-            </h1>
-        </a>
-        <a href="https://tecnologia.salvador.ba.gov.br/" class="card-link">
-            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_acesso_portal.png"
-                alt="Acesso ao Portal da Cogel">
-            <h1>
-                Acesso ao Portal da Cogel
-            </h1>
-        </a>
-        <a href="link_para_contato_suporte" class="card-link">
-            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_acesso_direto.png"
-                alt="Contato direto com Equipe de Suporte GLPI">
-            <h1>
-                Contato com a equipe de Suporte do GLPI
-            </h1>
-        </a>
-    </div>
-    
       </div>
     </section>
   </section>
 </body>
+<footer class="footer centered-footer">
+  <div class="headerFooter">
+    <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
+      alt="Logo da COGEL">
+    <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
+      alt="Logo da SEMIT e Prefeitura de Salvador">
+  </div>
+  <div class="footerCard">
+    <a href="link_para_manual_vpn" class="card-link">
+      <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_manual_vpn.png"
+        alt="Manual do VPN Acesso Remoto">
+      <h1>
+        Manual do VPN
+      </h1>
+    </a>
+    <a href="link_para_cartilhas" class="card-link">
+      <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_cartilha.png"
+        alt="Cartilhas de Aprendizado">
+      <h1>
+        Cartilhas de Aprendizado
+      </h1>
+    </a>
+    <a href="http://tecnologia.salvador.ba.gov.br/" class="card-link">
+      <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_acesso_portal.png"
+        alt="Acesso ao Portal da Cogel">
+      <h1>
+        Site da Cogel
+      </h1>
+    </a>
+    <a href="link_para_contato_suporte" class="card-link">
+      <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_acesso_direto.png"
+        alt="Contato direto com Equipe de Suporte GLPI">
+      <h1>
+        Suporte do GLPI
+      </h1>
+    </a>
+  </div>
+  <div class="rights-reserved">
+    <p>&copy; 2024 Copyright. Companhia de Governança e Eletrônica de Salvador(COGEL).</p>
+  </div>
+</footer>
 %%SSL_HIDDEN%%
 
 </html>
