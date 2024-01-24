@@ -279,24 +279,6 @@
       color: inherit;
     }
 
-    .card-link {
-      flex: 1 0 calc(25% - 20px);
-      text-align: center;
-      font-size: medium;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 15px 15px 30px rgb(25, 25, 25),
-        -15px -15px 30px rgb(60, 60, 60);
-      border-radius: 20px;
-      padding: 2px;
-    }
-
-    .card-link:hover {
-      text-decoration: underline;
-      opacity: 0.5;
-
-    }
-
     .card-item img {
       width: 35%;
       border-radius: 15px;
@@ -308,7 +290,7 @@
       }
     }
 
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 450px) {
       .card {
         width: 100%;
         padding: 30px;
@@ -355,14 +337,6 @@
         color: #ffffff;
       }
 
-      .headerFooter {
-        width: 100%;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 0px 15px 0px 15px;
-      }
     }
 
     .sectionForm {
@@ -405,7 +379,7 @@
 
     .footer {
       width: 100%;
-      border-top: 0.125em solid #fff;
+      border-top: 0.1em solid #fff;
       margin-top: 90px;
       display: flex;
       flex-wrap: wrap;
@@ -421,15 +395,91 @@
       color: #fff;
     }
 
-    .headerFooter {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      width: 100%;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      padding: 0px 15px 0px 15px;
+    .modalToggle {
+      display: none;
     }
+
+    .btnAbrirPDF {
+      background-color: transparent;
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .modalPDF {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+    }
+
+    .modalPDF embed {
+      width: 40vw;
+      height: 80vh;
+    }
+
+    /* Botão de fechar */
+    .modalToggle:checked+.btnAbrirPDF+.modalPDF {
+      display: block;
+    }
+
+    .modalToggle:checked+.btnAbrirPDF+.modalPDF label {
+      position: absolute;
+      top: -12px;
+      right: 5px;
+      font-size: 30px;
+      cursor: pointer;
+      color: black;
+      /* Cor do texto */
+      transition: color 0.1s;
+      /* Transição suave da cor */
+    }
+
+    .modalToggle:checked+.btnAbrirPDF+.modalPDF label:hover {
+      color: red;
+      text-decoration: none;
+    }
+
+    .cartilhas-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cartilhas-list li {
+      margin-bottom: 10px;
+      list-style: none;
+    }
+
+    .cartilhas-list ul {
+      padding: 0px;
+      display: inline-grid;
+    }
+
+    .cartilhas-list li label {
+      text-decoration: none;
+      cursor: pointer;
+      transition: text-decoration 0.3s ease-in-out;
+    }
+
+    .cartilhas-list li label:hover {
+      text-decoration: underline;
+    }
+    .cartilhas-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cartilhas-list {
+  width: 48%; /* Ajuste conforme necessário para espaço entre as colunas */
+}
   </style>
   <section class="main">
     <form class="form" action="%%SSL_ACT%%" method="%%SSL_METHOD%%" name="f" autocomplete="off">
@@ -523,31 +573,114 @@
   </section>
 </body>
 <footer class="footer centered-footer">
-  <div class="headerFooter">
+  <a href="http://tecnologia.salvador.ba.gov.br/" class="">
     <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png" alt="Logo da COGEL">
-    <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
-      alt="Logo da SEMIT e Prefeitura de Salvador">
-  </div>
-  <div class="footerCard">
-    <a href="https://prefeituradesalvadorba.sharepoint.com/:f:/s/GSICOGEL/EuFVBTXSOUNDjJSh8ttHIG8BahNrcWAUCxrAYv1cpW5vNQ?e=U36zUO" class="card-link">
-      <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_cartilha.png"
-        alt="Cartilhas de Aprendizado">
-      <h1>
-        Cartilhas de Segurança
-      </h1>
-    </a>
-    <a href="http://tecnologia.salvador.ba.gov.br/" class="card-link">
-      <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/icone_acesso_portal.png"
-        alt="Acesso ao Portal da Cogel">
-      <h1>
-        Site da Cogel
-      </h1>
-    </a>
-  </div>
-  <div class="rights-reserved">
-    <p>&copy; 2024 Copyright. Companhia de Governança Eletrônica de Salvador(COGEL).</p>
-  </div>
+  </a>
+  <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
+    alt="Logo da SEMIT e Prefeitura de Salvador">
+  <div>
+    <h1>Cartilhas de Segurança</h1>
+    <div class="cartilhas-container">
+      <div class="cartilhas-list">
+        <ul>
+          <li>
+            <input type="checkbox" id="modalToggle1" class="modalToggle">
+            <label for="modalToggle1" class="btnAbrirPDF">Compras Online Seguras</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA COMPRAS ONLINE SEGURAS.pdf" type="application/pdf" width="100%"
+                height="100%" />
+              <label for="modalToggle1">x</label>
+            </div>
+          </li>
+          <li>
+            <input type="checkbox" id="modalToggle2" class="modalToggle">
+            <label for="modalToggle2" class="btnAbrirPDF">Engenharia Social e Crimes Cibernéticos</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA ENGENHARIA SOCIAL E CRIMES CIBERNÉTICOS.pdf"
+                type="application/pdf" width="100%" height="100%" />
+              <label for="modalToggle2">x</label>
+            </div>
+          </li>
+          <li>
+            <input type="checkbox" id="modalToggle3" class="modalToggle">
+            <label for="modalToggle3" class="btnAbrirPDF">Introdução Segurança Digital</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA INTRODUCAO SEGURANCA DIGITAL.pdf" type="application/pdf"
+                width="100%" height="100%" />
+              <label for="modalToggle3">x</label>
+            </div>
+          </li>
+          <li>
+            <input type="checkbox" id="modalToggle4" class="modalToggle">
+            <label for="modalToggle4" class="btnAbrirPDF">Navegação Segura Internet</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA NAVEGACAO SEGURA INTERNET.pdf" type="application/pdf"
+                width="100%" height="100%" />
+              <label for="modalToggle4">x</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="cartilhas-list">
+        <ul>
+          <li>
+            <input type="checkbox" id="modalToggle5" class="modalToggle">
+            <label for="modalToggle5" class="btnAbrirPDF">Proteção Contra Malware</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA PROTECAO CONTRA MALWARE.pdf" type="application/pdf" width="100%"
+                height="100%" />
+              <label for="modalToggle5">x</label>
+            </div>
+          </li>
+          <li>
+            <input type="checkbox" id="modalToggle6" class="modalToggle">
+            <label for="modalToggle6" class="btnAbrirPDF">Proteção de Senhas</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA PROTECAO SENHAS.pdf" type="application/pdf" width="100%"
+                height="100%" />
+              <label for="modalToggle6">x</label>
+            </div>
+          </li>
+          <li>
+            <input type="checkbox" id="modalToggle7" class="modalToggle">
+            <label for="modalToggle7" class="btnAbrirPDF">Protegendo Dispositivos Moveis</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA PROTEGENDO DISPOSITIVOS MOVEIS.pdf" type="application/pdf"
+                width="100%" height="100%" />
+              <label for="modalToggle7">x</label>
+            </div>
+          </li>
+          <li>
+            <input type="checkbox" id="modalToggle8" class="modalToggle">
+            <label for="modalToggle8" class="btnAbrirPDF">Uso Seguro Redes Sociais</label>
+
+            <div class="modalPDF">
+              <!-- Conteúdo do PDF aqui -->
+              <embed src="./cartilhas/GESIC - CARTILHA USO SEGURO REDES SOCIAIS.pdf" type="application/pdf" width="100%"
+                height="100%" />
+              <label for="modalToggle8">x</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+ 
 </footer>
+
 %%SSL_HIDDEN%%
 
 </html>

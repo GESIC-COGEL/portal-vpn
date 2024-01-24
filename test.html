@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar PDF</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .modalToggle {
+        display: none;
+    }
+
+    .btnAbrirPDF {
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .modalPDF {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .modalPDF embed {
+        width: 40vw;
+        height: 80vh;
+    }
+
+    /* Botão de fechar */
+    .modalToggle:checked + .btnAbrirPDF + .modalPDF {
+        display: block;
+    }
+
+    .modalToggle:checked + .btnAbrirPDF + .modalPDF label {
+        position: absolute;
+        top: 0px;
+        right: 3px;
+        font-size: 20px;
+        cursor: pointer;
+        color: black; /* Cor do texto */
+        transition: color 0.1s; /* Transição suave da cor */
+    }
+
+    .modalToggle:checked + .btnAbrirPDF + .modalPDF label:hover {
+        color: red; /* Cor ao passar o mouse */
+    }
+
+</style>
+
+<body>
+    <input type="checkbox" id="modalToggle1" class="modalToggle">
+    <label for="modalToggle1" class="btnAbrirPDF">COMPRAS ONLINE SEGURAS</label>
+
+    <div class="modalPDF">
+        <!-- Conteúdo do PDF aqui -->
+        <embed src="./cartilhas/GESIC - CARTILHA COMPRAS ONLINE SEGURAS.pdf" type="application/pdf" width="100%"
+            height="100%" />
+        <label for="modalToggle1">✖</label>
+    </div>
+
+    <input type="checkbox" id="modalToggle2" class="modalToggle">
+    <label for="modalToggle2" class="btnAbrirPDF">ENGENHARIA SOCIAL E CRIMES CIBERNÉTICOS</label>
+
+    <div class="modalPDF">
+        <!-- Conteúdo do PDF aqui -->
+        <embed src="./cartilhas/GESIC - CARTILHA ENGENHARIA SOCIAL E CRIMES CIBERNÉTICOS.pdf" type="application/pdf" width="100%"
+            height="100%" />
+        <label for="modalToggle2">✖</label>
+    </div>
+</body>
+
+</html>
