@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloqueio de URL</title>
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+</head>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    .card {
+        width: 420px;
+        height: 420px;
+        background-color: #005daa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 30px;
+        gap: 13px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
+        border-radius: 10%;
+    }
+
+    #cookieSvg {
+        width: 50px;
+    }
+
+    #cookieSvg g path {
+        fill: rgb(97, 81, 81);
+    }
+
+    .Heading {
+        font-size: 1.4em;
+        font-weight: 800;
+        color: rgb(255, 255, 255);
+    }
+
+    .Description1 {
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+    }
+
+    .Description2 {
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+    }
+
+    button {
+        --primary-color: #ffff;
+        --secondary-color: #002152;
+        --hover-color: #eceff2;
+        --arrow-width: 10px;
+        --arrow-stroke: 2px;
+        box-sizing: border-box;
+        border: 0;
+        border-radius: 50px;
+        color: var(--secondary-color);
+        padding: 1em 1.8em;
+        background: var(--primary-color);
+        display: flex;
+        transition: 0.2s background;
+        align-items: center;
+        gap: 0.6em;
+        font-weight: bold;
+    }
+
+    button .arrow-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button .arrow {
+        margin-top: 1px;
+        width: var(--arrow-width);
+        background: var(--primary-color);
+        height: var(--arrow-stroke);
+        position: relative;
+        transition: 0.2s;
+    }
+
+    button .arrow::before {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        border: solid var(--secondary-color);
+        border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+        display: inline-block;
+        top: -3px;
+        right: 3px;
+        transition: 0.2s;
+        padding: 3px;
+        transform: rotate(-45deg);
+    }
+
+    button:hover {
+        background-color: var(--hover-color);
+        cursor: pointer;
+    }
+
+    button:hover .arrow {
+        background: var(--secondary-color);
+    }
+
+    button:hover .arrow:before {
+        right: 0;
+    }
+
+    .declineButton:hover {
+        background-color: #bbb2b2;
+        transition-duration: .2s;
+
+    }
+
+    .acceptButton:hover {
+        background-color: #9173ff;
+        transition-duration: .2s;
+    }
+
+    .block_img img {
+        width: 15%;
+    }
+
+    .block_img {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+<body>
+
+    <div class="card">
+        <div class="block_img">
+            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/block.png"
+                alt="Icon de Block">
+        </div>
+
+        <p class="Heading">ACESSO NEGADO</p>
+        <p class="Description1">Páginas adminstrativas por segurança são bloqueadas externamente.</p>
+        <p class="Description2">Para acessar utilize a rede da PMS ou via VPN, caso não possua acesso a VPN entre em
+            contato com seu NTI.</p>
+
+        <div class="buttonContainer">
+            <a href="https://acessoremoto.salvador.ba.gov.br/remote/login?lang=pg">
+            <button>
+                Portal de acesso remoto
+                <div class="arrow-wrapper">
+                    <div class="arrow"></div>
+                </div>
+            </button>
+            </a>
+        </div>
+        <div className="imgs">
+
+            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
+                alt="Logo da COGEL">
+            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
+                alt="Logo da SEMIT e Prefeitura de Salvador">
+        </div>
+
+    </div>
+
+</body>
+
+</html>
