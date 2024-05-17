@@ -229,27 +229,71 @@
 
 <body class="block">
     <div class="main">
-        <div class="header"></div>
-        <div class="sidebar">
-            <h2 class="fgd_icon">block</h2>
-        </div>
-        <h3>Página bloqueada!</h3>
-        <div class="notice">
+        <div class="card">
+            <img class="block" src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/block.png"
+                alt="Icon de Block">
+            <p class="Heading">Página bloqueada</p>
+            <p class="Description1">URL: %%URL%%</p>
+            <p class="Description1">Message ID: %%MSG_ID%%</p>
+            <p class="Description1">Attack ID: <span id="event_id">%%EVENT_ID%%</span></p>
+            <p class="Description1">Client IP: %%SOURCE_IP%%</p>
             <p>A página não pode ser mostrada. Caso ache que seja um engano, entre em contato com o NTI (Núcleo de Tecnologia da Informação) do seu órgão para obter informações adicionais.</p>
-            <p>
-                URL: %%URL%%<br /><br />
-                Client IP: %%SOURCE_IP%%<br />
-                Message ID: %%MSG_ID%%
-            </p>
-        </div>
-        <div class="imgs">
-            <img class="logo"
-                src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
-                alt="Logo da COGEL">
-            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
-                class="logo2" alt="Logo da SEMIT e Prefeitura de Salvador">
+
+            <div class="buttonContainer">
+                <a href="https://acessoremoto.salvador.ba.gov.br/remote/login?lang=pg">
+                    <button>Portal de acesso remoto <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div></button>
+                </a>
+            </div>
+            <div class="imgs">
+                <img class="logo"
+                    src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
+                    alt="Logo da COGEL">
+                <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
+                    class="logo2" alt="Logo da SEMIT e Prefeitura de Salvador">
+            </div>
         </div>
     </div>
 
+    <div id="new_content">
+        <div class="card">
+            <img class="block" src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/block.png"
+                alt="Icon de Block">
+            <p class="Heading">ACESSO NEGADO</p>
+            <p class="Description1">URL: %%URL%%</p>
+            <p class="Description1">Message ID: %%MSG_ID%%</p>
+            <p class="Description1">Client IP: %%SOURCE_IP%%</p>
+            <p class="Description1">Páginas administrativas, por segurança, são bloqueadas para acesso externo. Esse problema pode ser resolvido utilizando a rede PMS ou, caso não possua acesso, via VPN. 
+                Se ainda assim não conseguir acessar, entre em contato com o NTI (Núcleo de Tecnologia da Informação) do seu órgão.</p>
+            <div class="buttonContainer">
+                <a href="https://acessoremoto.salvador.ba.gov.br/remote/login?lang=pg">
+                    <button>Portal de acesso remoto <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div></button>
+                </a>
+            </div>
+            <div class="imgs">
+                <img class="logo"
+                    src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
+                    alt="Logo da COGEL">
+                <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
+                    class="logo2" alt="Logo da SEMIT e Prefeitura de Salvador">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var eventId = document.getElementById("event_id").innerText.trim();
+            if (eventId === "20000007") {
+                document.getElementById("new_content").style.display = "flex";
+                document.querySelector(".main").style.display = "none";
+            } else {
+                document.querySelector(".main").style.display = "block";
+                document.getElementById("new_content").style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>

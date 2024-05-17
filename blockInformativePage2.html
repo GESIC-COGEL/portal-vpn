@@ -11,7 +11,7 @@
             padding: 0;
             font-family: Verdana, Arial, sans-serif;
             font-size: 10pt;
-            background-color: #7e7e7e;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,7 +24,7 @@
         }
 
         .main {
-            text-align: left;
+            text-align: center;
             padding: 20px;
             box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
             border-radius: 10px;
@@ -75,63 +75,49 @@
 
         #new_content {
             font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .card {
-            padding: 1rem;
+            width: 90%;
+            max-width: 420px;
+            padding: 20px 30px;
             background-color: #005daa;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-            border: 3px solid #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
             gap: 13px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
+            border-radius: 10%;
             color: #ffffff;
         }
 
         .block {
-            margin: 10px 0;
+            margin: 20px 0;
             width: 30%;
         }
-
-        .Heading {
+        .Heading{
             padding-top: 0px;
-            padding-bottom: 0px;
             margin-top: 0px;
-            margin-bottom: 0px;
             font-weight: 800;
             font-size: 25px;
-            text-align: center;
         }
-
         .Description1 {
-            margin-top: 0;
-            margin-bottom: 0;
-            text-align: left;
-            font-size: 18px;
-            font-weight: 400;
-            color: rgb(255, 255, 255);
-            width: 100%;
-        }
-
-        .Description2 {
-            margin-top: 0;
-            margin-bottom: 0;
-            text-align: left;
-            font-size: 18px;
-            font-weight: 600;
-            color: rgb(255, 255, 255);
-            width: 100%;
-        }
-
-        .buttonContainer {
-            text-align: center;
-            width: 100%;
-        }
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+    }
+    .Description2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+    }
 
         .buttonContainer a {
             text-decoration: none;
@@ -151,7 +137,6 @@
             align-items: center;
             gap: 0.6em;
             transition: 0.2s background;
-            margin: 0 auto;
         }
 
         button .arrow {
@@ -186,43 +171,6 @@
         button:hover .arrow::before {
             right: 0;
         }
-
-        .imgs {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .logo {
-            width: 25%;
-        }
-
-        .logo2 {
-            width: 55%;
-        }
-
-        @media screen and (max-width: 1000px) {
-            .card {
-                padding: 0.8rem;
-            }
-
-            .Heading {
-                font-size: 20px;
-            }
-
-            .Description1,
-            .Description2 {
-                font-size: 16px;
-            }
-
-            .logo {
-                width: 25%;
-            }
-
-            .logo2 {
-                width: 55%;
-            }
-        }
     </style>
     <title>The URL you requested has been blocked</title>
 </head>
@@ -233,23 +181,55 @@
         <div class="sidebar">
             <h2 class="fgd_icon">block</h2>
         </div>
-        <h3>Página bloqueada!</h3>
+        <h3>Web Page Blocked!</h3>
         <div class="notice">
-            <p>A página não pode ser mostrada. Caso ache que seja um engano, entre em contato com o NTI (Núcleo de Tecnologia da Informação) do seu órgão para obter informações adicionais.</p>
+            <p>The page cannot be displayed. Please contact the administrator for additional information.</p>
             <p>
                 URL: %%URL%%<br /><br />
                 Client IP: %%SOURCE_IP%%<br />
+                Attack ID: <span id="event_id">%%EVENT_ID%%</span><br />
                 Message ID: %%MSG_ID%%
             </p>
         </div>
-        <div class="imgs">
-            <img class="logo"
-                src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
-                alt="Logo da COGEL">
-            <img src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
-                class="logo2" alt="Logo da SEMIT e Prefeitura de Salvador">
+    </div>
+
+    <div id="new_content">
+        <div class="card">
+            <img class="block" src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/block.png"
+                alt="Icon de Block">
+            <p class="Heading">ACESSO NEGADO</p>
+            <p class="Description1">URL: %%URL%%</p>
+            <p class="Description1">Message ID: %%MSG_ID%%</p>
+            
+            <p class="Description1">Páginas administrativas por segurança são bloqueadas externamente.</p>
+            <p class="Description2">Para acessar utilize a rede da PMS ou via VPN, caso não possua acesso a VPN entre em
+                contato com seu NTI.</p>
+            <div class="buttonContainer">
+                <a href="https://acessoremoto.salvador.ba.gov.br/remote/login?lang=pg">
+                    <button>Portal de acesso remoto <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div></button>
+                </a>
+            </div>
+            <div class="imgs">
+                <img  src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_cogel.png"
+                    alt="Logo da COGEL">
+                <img  src="https://raw.githubusercontent.com/GESIC-COGEL/portal-vpn/main/assets/logo_semit.png"
+                    class="semit" alt="Logo da SEMIT e Prefeitura de Salvador">
+            </div>
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var eventId = document.getElementById("event_id").innerText.trim();
+            if (eventId === "20000007") {
+                document.getElementById("new_content").style.display = "flex";
+            } else {
+                document.querySelector(".main").style.display = "block";
+            }
+        });
+    </script>
 </body>
+
 </html>
